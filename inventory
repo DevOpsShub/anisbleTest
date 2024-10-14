@@ -1,0 +1,5 @@
+[developer_workstation]
+dev_workstation ansible_host=<IP_devADDRESS>
+
+[jenkins_master]
+jenkins_master ansible_host=<IP_jenkADDRESS>

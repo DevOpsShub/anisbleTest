@@ -1,0 +1,8 @@
+---
+- name: Setup Developer Workstation and Jenkins Master
+  hosts: all
+  become: yes
+
+  roles:
+    - developer_workstation
+    - jenkins_master

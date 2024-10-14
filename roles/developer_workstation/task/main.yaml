@@ -1,0 +1,50 @@
+---
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Install Bookworm release (Debian 12)
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - openjdk-12-jdk
+    - maven
+    - gradle
+    - nodejs
+    - git
+    - docker.io
+    - mongodb
+    - mysql-server
+    - google-chrome-stable
+    - minikube
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+
+- name: Install IntelliJ IDEA
+  apt:
+    name: snapd
+    state: present
+
+- name: Install IntelliJ IDEA via snap
+  snap:
+    name: intellij-idea-community
+    classic: yes
+
+- name: Install Visual Studio Code via snap
+  snap:
+    name: code
+    classic: yes
+
+- name: Install NodeJS 16
+  apt:
+    name: nodejs
+    state: present
+
+- name: Add Docker user group
+  user:
+    name: "{{ ansible_user }}"
+    groups: docker
+    append: yes
